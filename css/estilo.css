@@ -1,0 +1,598 @@
+*  {
+    padding: 0px;
+    margin: 0px;
+}
+  
+
+
+
+.botones {
+    display: flex;            
+    justify-content: center;  
+    gap: 50px;               
+    margin: 50px 0;          
+}
+.contenedor {                         /*  h3 educando a nuestros hijos index*/
+ 
+    gap: 100px;              
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    line-height: normal;     
+    text-align: center;      
+    font-size: 1rem;
+    font-family: "Trebuchet MS", sans-serif;
+    color: black;                          
+    width: 200px;
+    height: 25px;
+    background-color: rgba(172, 168, 187, 0.4);
+    border: 3px solid #1C2833;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.3s; 
+}
+
+.contenedor:hover {
+    transform: scale(1.2); 
+    cursor: pointer;     
+}
+
+.contenedor a {
+    text-decoration: none;
+    color: inherit; 
+}
+
+
+.cuadrado {                                   /* h3 juguetes index responsive*/
+ 
+    display: flex;          
+    justify-content: center;
+    align-items: center;
+    gap: 100px;              
+    font-family: Verdana, Geneva, sans-serif; 
+    font-size: 2em;
+    color: #590B7A;
+    text-align: center;
+    background-color: rgba(59, 184, 219, 0.4);
+    box-sizing: border-box;
+    border-radius: 12px; 
+    border: 2px solid #590B7A;
+    padding: 10px;
+    width: 200px;
+    height: 75px;
+    transition: transform 0.3s; 
+}
+
+.cuadrado:hover {
+    transform: scale(1.2); 
+    cursor: pointer;     
+}
+
+.cuadrado a {
+    text-decoration: none;
+    color: inherit; 
+}
+
+@media (max-width: 768px) {
+    .botones {
+        flex-direction: column; 
+        gap: 30px;              
+    }
+
+    .cuadrado {
+        width: 80%;             
+        max-width: 300px;
+    }
+}
+
+/* Celulares muy pequeños (Hasta 480px) */
+@media (max-width: 480px) {
+    .cuadrado {
+        font-size: 1.2rem;     
+        height: 60px;
+    }
+}
+
+
+/* Estilos base del Nav */
+.header {
+    background-color: rgba(59, 184, 219, 0.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    position: relative;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu-toggle {
+    display: none;              /* Oculto en PC */
+    font-size: 1.5rem;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+                      /* Breakpoint SM (0 - 480px) */
+@media (max-width: 480px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-list {
+        display: none; /* Escondemos la lista por defecto */
+        flex-direction: column;
+        position: absolute;
+        top: 40px; 
+        right: 0;
+        width: 25vw; 
+        min-width: 120px; 
+        background-color: rgba(51, 50, 54, 0.95);
+        padding: 20px 10px;
+        border-radius: 0 0 0 12px;
+        text-align: center;
+        box-shadow: -5px 5px 15px rgba(0,0,0,0.3);
+    }
+
+   
+    .nav-list.active {
+        display: flex;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    .ul__li {
+        margin: 15px 0;
+        display: block;
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+}
+
+/* --- Breakpoint MD (481px - 768px) --- */
+@media (min-width: 481px) and (max-width: 768px) {
+    .nav-list {
+        gap: 15px;
+    }
+}
+           
+h1 {
+    display: block;
+    margin: 20px auto;     
+    font-family: Verdana, Geneva, sans-serif;                                                
+    font-size: 25px;
+    color: #590B7A;
+    text-align: center;
+    background-color: rgb(59, 184, 219,0.4);
+    box-sizing: border-box;
+    border-radius: 12px; 
+    border: 2px solid #590b7a;
+    padding: 20px;
+    width: 300px;
+    height:75px ;
+    margin-top: 50px;
+    margin-bottom:75px;
+    transition: transform 0.3s; 
+}
+
+h1:hover {
+    transform: scale(1.2); 
+    cursor: pointer;  
+    text-decoration: none;
+    color: inherit;    
+}
+
+body {                                                      /*pagina principal*/
+    background-image:  url('../imagenes/principal.png');
+    background-repeat: no-repeat;  
+    background-position: center;   
+    background-size: cover;        
+    background-attachment: fixed; 
+    min-height: 100vh;            
+}
+
+
+.pie {                                             /* footer responsive*/
+    background-color: rgb(135, 183, 206);
+    font-family: Verdana, sans-serif;
+    font-size: 1.4rem;
+    margin-top: 100px;
+    text-shadow:  2px 2px 4px antiquewhite 2px 2px 4px antiquewhite;
+    color: rgb(109, 9, 240);
+    width: 100%;
+    height: 120px;
+    background-color:  rgba(59, 184, 219,0.6);
+}
+
+.icono-red-social {
+width: 60px;  
+height: auto; 
+transition: transform 0.3s;
+}
+
+.icono-red-social:hover {
+transform: scale(1.1); 
+}
+
+/* sm: 0px - 480px (Celulares) */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav { width: 100%; justify-content: center; }
+    h1 { width: 90%; font-size: 20px; }
+    .contenedor, .cuadrado { width: 90%; }
+    .pie { font-size: 1rem; }
+}
+
+/* md: 481px - 768px (Tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+    nav { width: 40%; }
+    h1 { width: 350px; }
+    .contenedor, .cuadrado { width: 300px; }
+}
+
+/* lg: 769px - 2279px (Escritorio) */
+@media (min-width: 769px) {
+    nav { width: auto; min-width: 200px; }
+    .header { padding: 10px 10%; }
+    
+    /* Efecto para que los botones respiren en pantalla grande */
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+
+
+
+
+.body-mi-cuenta{
+
+    background-image:  url('../imagenes/mi-cuenta.png');
+    background-repeat: no-repeat;  
+    background-position: center;   
+    background-size: cover;        
+    background-attachment: fixed; 
+    min-height: 100vh
+}
+
+.account {                            /*h2 mi cuenta crear cuenta*/
+    display: flex;          
+    align-items: center;    
+    justify-content: center;
+    margin: 10px AUTO 10px; 
+    font-family: Verdana, Geneva, sans-serif; 
+    font-size: 25px; 
+    color: #590B7A;
+    background-color: rgba(59, 184, 219, 0.4);
+    box-sizing: border-box;
+    border-radius: 12px; 
+    border: 2px solid #590B7A;
+    width: 220px;
+    height: 45px;
+    padding: 0; 
+}
+
+
+
+.formulario {
+    display: flex;
+    gap: 10px;
+    background-color: rgba(13, 45, 226, 0.5);
+    color: rgb(43, 63, 5);
+
+}
+
+input::placeholder {
+    color: red !important;
+    opacity: 1; 
+}
+
+
+
+.body-juguetes{                                      /* body juguetes*/
+
+    background-image:  url('../imagenes/jugutes.png');
+    background-repeat: no-repeat;  
+    background-position: center;   
+    background-size: cover;        
+    background-attachment: fixed; 
+    min-height: 100vh
+}
+
+h3 {                                                   /*H3 Categorias juguetes*/
+    display: block;
+    margin: 20px auto;     
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 25px;
+    color: #590B7A;
+    text-align: center;
+    background-color: rgb(59, 184, 219,0.4);
+    box-sizing: border-box;
+    border-radius: 12px; 
+    border: 2px solid #590b7a;
+    padding: 20px;
+    width: 250px;
+    height:75px ;
+    margin-top: 50px;
+    margin-bottom:75px;
+    transition: transform 0.3s; 
+}
+
+h3:hover {
+    transform: scale(1.2); 
+    cursor: pointer;  
+    text-decoration: none;
+    color: inherit;    
+}
+
+.categories {
+  
+    display: flex;
+    background-color: rgb(29, 31, 34, 0.4);
+    height: 75px;
+    list-style-type: none;
+
+}
+   ul li  {
+              
+        font-size: 1em;
+        font-family: trebuchet ms;
+        background-color: rgb(131, 157, 182);
+        margin: auto;
+        padding-right: 25px;
+        color: rgb(51, 45, 45);
+        padding-left: 35px ;
+        border: 4px  solid rgb(180, 154, 154);
+        border-radius: 5px;
+        transition: transform 0.3s; 
+    }   
+    
+    ul li a{
+    
+     text-decoration: none;
+       
+    }  
+
+    li:hover {
+        transform: scale(1.2); 
+        cursor: pointer;  
+        text-decoration: none;
+        color: inherit;    
+    }
+
+    /* (Móviles / Small: 0px a 480px)*/
+.categories {
+    flex-direction: column; 
+    height: auto;           
+    padding: 20px 0;
+    gap: 15px;            
+    align-items: center;
+}
+
+ul li {
+    width: 80%;            
+    text-align: center;
+    padding: 10px;       
+}
+
+/* Breakpoint MD (481px a 768px)  */
+@media (min-width: 481px) and (max-width: 768px) {
+    .categories {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    ul li {
+        width: 60%;
+    }
+}
+
+/*Breakpoint Large (Más de 769px) */
+@media (min-width: 769px) {
+    .categories {
+        flex-direction: row;
+        height: 75px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    ul li {
+        width: auto;
+        margin: 0 10px;
+    }
+}
+
+
+
+.register-btn {                                      /* mi cuenta registrar cuenta*/
+         
+    display: flex;          
+    align-items: center;    
+    justify-content: center;
+    margin: 10px auto 10px ; 
+    font-family: Verdana, Geneva, sans-serif; 
+    font-size: 25px; 
+    color: #590B7A; 
+    background-color: rgba(59, 184, 219, 0.4);
+    box-sizing: border-box;
+    border-radius: 12px; 
+    border: 3px solid rgb(54, 38, 33);
+    width:  180px;
+    height:60px;
+    padding: 0; 
+    transition: transform 0.3s; 
+}
+
+.register-btn:hover {
+    transform: scale(1.1); 
+    cursor: pointer;  
+    text-decoration: none;
+    color: inherit;    
+}
+   
+
+
+
+.child{
+
+        display: flex;
+        align-items: center;    
+        justify-content: center;
+        margin: 20px auto;     
+        font-family: Verdana, Geneva, sans-serif;
+        font-size: 25px;
+        color: #590B7A;
+        text-align: center;
+        background-color: rgb(59, 184, 219,0.4);
+        box-sizing: border-box;
+        border-radius: 12px; 
+        border: 2px solid #590b7a;
+        padding: 20px;
+        width: 250px;
+        height:75px ;
+        margin-top: 50px;
+        margin-bottom:75px;
+        transition: transform 0.3s; 
+    }
+    
+.child:hover {
+        transform: scale(1.2); 
+        cursor: pointer;  
+        text-decoration: none;
+        color: inherit;    
+    }
+
+.section {                                    /* section educando a nuestros hijos*/
+
+      display: flex;  
+      background-color: rgba(0, 255, 255, 0.4);
+      align-items: center; 
+      gap: 20px;  
+      font-size: 22px; 
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color: rgb(28, 40, 51);   
+      margin-bottom: 150px;       
+}
+
+.section p {
+ 
+         
+         flex: 2; 
+}
+
+.section aside {
+         flex: 1;
+}
+
+.section img {
+          max-width: 100%;
+          height: auto;
+}  
+
+.educando {
+
+    
+    background-image:  url('../imagenes/fondo-club.png');
+    background-repeat: no-repeat;  
+    background-position: center;   
+    background-size: cover;        
+    background-attachment: fixed; 
+    min-height: 100vh
+} 
+
+.learn {                                 /*h4 educando*/
+
+
+    display: flex;    
+    background-color: rgba(28, 40, 51, 0.5);
+    justify-content: center; 
+    align-items: center;     
+    min-height: 7vh; 
+    max-width: 37vw;      
+    margin-left: 310px;   
+    color: rgb(250, 235, 215);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 35px;
+    border: #000000 3px solid;
+    border-radius: 12px;
+    margin-bottom: 75px;
+    
+}.grilla{                               /* h2 grilla-bebes*/
+
+    display: grid;
+    justify-content: center; 
+    align-items: center;     
+    line-height: normal;     
+    text-align: center;      
+    font-size: 1rem;
+    font-family: "Trebuchet MS", sans-serif;
+    color: black;                          
+    width: 200px;
+    height: 25px;
+    background-color: rgba(172, 168, 187, 0.4);
+    margin: 10px auto 30px ;     
+    border: 3px solid #1C2833;
+    border-radius: 8px;
+    
+}
+    
+.body-grilla{                                      /* body grilla*/
+
+    background-image:  url('../imagenes/grilla-bebe.png');
+    background-repeat: no-repeat;  
+    background-position: center;   
+    background-size: cover;        
+    background-attachment: fixed; 
+    min-height: 100vh
+}
+
+
+.baby {                                         /*h3 grilla*/                           
+    display: block;
+    margin: 20px auto;     
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 25px;
+    color: #590B7A;
+    text-align: center;
+    background-color: rgb(59, 184, 219,0.4);
+    box-sizing: border-box;
+    border-radius: 12px; 
+    border: 2px solid #590b7a;
+    padding: 20px;
+    width: 350px;
+    height:75px ;
+    margin-top: 50px;
+    margin-bottom:75px;
+    transition: transform 0.3s; 
+}
+
+.card-group{
+     
+      column-gap: 35px;
+      margin: 20px 25px;
+
+}
+
+.text-body-secondary{
+
+    font-size: 2rem;
+
+}
