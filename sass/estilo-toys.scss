@@ -1,0 +1,206 @@
+$color-borde-botones: #1c2833;
+$color-boton:rgba(62, 58, 83, 0.897);
+$color-borde-li:#590B7A;
+$primary-blue: rgba(33, 31, 156, 0.822);
+$dark: rgba(51, 50, 54, 0.95);
+$text-white: whitesmoke;
+$shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
+
+// 2. Mixins 
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+// 3. Estilos Base
+.header {
+    background-color: $primary-blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.navegador {
+    position: relative;
+
+    .nav-list {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+
+        // Estilos para los items de la lista
+        .ul__li {
+            display: flex;
+            align-items: center;
+            gap: 8px; 
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+        &.active {
+            display: flex;
+            animation: slideDown 0.3s ease forwards;
+        }
+    }
+
+    .menu-toggle {
+        display: none; 
+        font-size: 1.5rem;
+        color: $text-white;
+        cursor: pointer;
+    }
+}
+
+// 4. Media Queries Anidadas
+/* Breakpoint MD (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .navegador .nav-list {
+        gap: 15px;
+    }
+}
+
+/* Breakpoint SM (0 - 480px) */
+@media (max-width: 480px) {
+    .navegador {
+        .menu-toggle {
+            display: block;
+        }
+
+        .nav-list {
+            display: none; // Escondido por defecto en móvil
+            flex-direction: column;
+            position: absolute;
+            top: 40px; 
+            right: 0;
+            width: 25vw; 
+            min-width: 120px; 
+            background-color: $dark;
+            padding: 20px 10px;
+            border-radius: 0 0 0 12px;
+            text-align: center;
+            box-shadow: $shadow;
+
+            .ul__li {
+                margin: 15px 0;
+                display: block;
+            }
+        }
+    }
+}
+    
+
+
+
+
+// 2. Mixin para efectos de interacción (Hover)
+@mixin hover-grow {
+    transition: transform 0.3s;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+// 3. Estilos del Contenedor de Botones
+.botones {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 50px 0;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+// 4. Botón "Educando a nuestros hijos"
+.contenedor {
+    @include hover-grow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    font-family: "Trebuchet MS", sans-serif;
+    color: black;
+    width: 200px;
+    height: 25px;
+    background-color: $color-boton;
+    border: 3px solid $color-borde-botones; 
+    border-radius: 8px;
+    line-height: normal;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+// 5. Botón "Juguetes"
+.cuadrado {
+    @include hover-grow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 2em;
+    color: $color-borde-li; // Tu variable
+    background-color: $primary-blue; // Tu variable
+    box-sizing: border-box;
+    border-radius: 12px;
+    border: 2px solid $color-borde-li; // Tu variable
+    padding: 10px;
+    width: 200px;
+    height: 75px;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    // Responsive anidado para .cuadrado
+    @media (max-width: 768px) {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 1.2rem;
+        height: 60px;
+    }
+}
+
+h1 {
+    display: block;
+    margin: 20px auto;
+    margin-top: 50px;
+    margin-bottom: 75px;    
+    width: 300px;
+    height: 75px;
+    padding: 20px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    color: $color-borde-li; 
+    background-color: $color-boton;
+    border: 2px solid $color-borde-li;
+    border-radius: 12px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit; 
+    }
+}
