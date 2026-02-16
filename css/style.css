@@ -551,7 +551,7 @@ body {
   border-radius: 12px;
   border: 2px solid #590B7A;
   padding: 20px;
-  width: 350px;
+  width: 300px;
   height: 75px;
   transition: transform 0.3s;
   text-shadow: 2px 2px 4px whitesmoke, -1px -1px 0px whitesmoke;
@@ -744,6 +744,7 @@ h3 {
   width: 250px;
   height: 75px;
   transition: transform 0.3s ease;
+  text-shadow: 2px 2px 4px #590B7A, -1px -1px 0px whitesmoke;
 }
 h3:hover {
   transform: scale(1.1);
@@ -865,6 +866,18 @@ h3:hover {
 .card-group .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px #590B7A;
+}
+.card-group .card:hover .btn-success {
+  background-color: #1c2833;
+  border: none;
+  border-radius: 0;
+  padding: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.card-group .card:hover .btn-success:hover {
+  background-color: #ff0055, 15%;
+  color: whitesmoke;
 }
 .card-group .card .text-body-secondary {
   font-size: 1.5rem;

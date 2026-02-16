@@ -21,6 +21,8 @@ $font-main: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 // 3. Estilos Base
+
+
 .header {
     background-color: $color-fondo;
     display: flex;
@@ -479,7 +481,7 @@ body {                                           // Index pagina principal
 //  Media Queries
 @media (max-width: 480px) {
     .menu-toggle { display: block; cursor: pointer; font-size: 2rem; color: white; }
-    .nav-list { display: none; } // Se activa con JS
+    .nav-list { display: none; } 
     .formulario { width: 90%; }
 }
 
@@ -601,7 +603,7 @@ body {                                           // Index pagina principal
     border-radius: 12px; 
     border: 2px solid $color-borde-li;
     padding: 20px;
-    width: 350px;
+    width: 300px;
     height: 75px;
     transition: transform 0.3s;
     text-shadow: 2px 2px 4px $text-white, 
@@ -762,7 +764,7 @@ body {                                           // Index pagina principal
     }
 }
 
-// Body Juguetes 
+                                                       // Body Juguetes 
 
 
 .body-juguetes {
@@ -791,6 +793,9 @@ h3 {
     width: 250px;
     height: 75px;
     transition: transform 0.3s ease;
+    text-shadow: 2px 2px 4px $color-borde-li, 
+                 -1px -1px 0px $text-white;
+
 
     &:hover {
         transform: scale(1.1);
@@ -932,6 +937,20 @@ h3 {
         &:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px $color-borde-li;
+
+            .btn-success {
+                background-color: $color-borde-botones; 
+                border: none;
+                border-radius: 0; 
+                padding: 12px;
+                font-weight: bold;
+                transition: all 0.3s ease;
+    
+                &:hover {
+                    background-color: $color-fuerte, 15%; 
+                    color:$text-white;
+                }
+            }
         }
 
         .text-body-secondary {
