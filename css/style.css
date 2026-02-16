@@ -105,7 +105,7 @@
   text-align: center;
   font-size: 1rem;
   font-family: "Trebuchet MS", sans-serif;
-  color: rgba(51, 50, 54, 0.6);
+  color: #590B7A;
   width: 250px;
   height: 85px;
   background-color: rgba(82, 79, 226, 0.4);
@@ -114,6 +114,7 @@
   line-height: normal;
   font-family: "Playfair Display", serif;
   font-size: 35px;
+  text-shadow: 2px 2px 4px whitesmoke, -1px -1px 0px whitesmoke;
 }
 .contenedor a {
   text-decoration: none;
@@ -144,6 +145,7 @@
   height: 75px;
   font-family: "Playfair Display", serif;
   font-size: 2 rem;
+  text-shadow: 2px 2px 4px whitesmoke, -1px -1px 0px whitesmoke;
 }
 .cuadrado a {
   text-decoration: none;
