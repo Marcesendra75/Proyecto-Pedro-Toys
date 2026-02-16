@@ -450,6 +450,16 @@ ul li {
    
 
 
+.educando {
+
+    
+    background-image:  url('../imagenes/fondo-club.png');
+    background-repeat: no-repeat;  
+    background-position: center;   
+    background-size: cover;        
+    background-attachment: fixed; 
+    min-height: 100vh
+} 
 
 .child{
 
@@ -507,16 +517,7 @@ ul li {
           height: auto;
 }  
 
-.educando {
 
-    
-    background-image:  url('../imagenes/fondo-club.png');
-    background-repeat: no-repeat;  
-    background-position: center;   
-    background-size: cover;        
-    background-attachment: fixed; 
-    min-height: 100vh
-} 
 
 .learn {                                 /*h4 educando*/
 
@@ -527,15 +528,28 @@ ul li {
     align-items: center;     
     min-height: 7vh; 
     max-width: 37vw;      
-    margin-left: 310px;   
-    color: rgb(250, 235, 215);
+    margin-left: 520Px;   
+    color: rgb(15, 11, 11);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 35px;
     border: #000000 3px solid;
     border-radius: 12px;
     margin-bottom: 75px;
     
-}.grilla{                               /* h2 grilla-bebes*/
+}
+
+
+    
+.body-grilla{                                      /* body grilla*/
+
+    background-image:  url('../imagenes/grilla-bebe.png');
+    background-repeat: no-repeat;  
+    background-position: center;   
+    background-size: cover;        
+    background-attachment: fixed; 
+    min-height: 100vh
+}
+.grilla{                               /* h2 grilla-bebes*/
 
     display: grid;
     justify-content: center; 
@@ -553,19 +567,9 @@ ul li {
     border-radius: 8px;
     
 }
-    
-.body-grilla{                                      /* body grilla*/
-
-    background-image:  url('../imagenes/grilla-bebe.png');
-    background-repeat: no-repeat;  
-    background-position: center;   
-    background-size: cover;        
-    background-attachment: fixed; 
-    min-height: 100vh
-}
 
 
-.baby {                                         /*h3 grilla*/                           
+.return {                                         /*h3 grilla*/                           
     display: block;
     margin: 20px auto;     
     font-family: Verdana, Geneva, sans-serif;
