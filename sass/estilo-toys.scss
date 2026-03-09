@@ -6,6 +6,7 @@ $dark: rgba(51, 50, 54, 0.6);
 $text-white: whitesmoke;
 $color-fondo:rgba(8, 80, 235, 0.6);
 $color-fuerte: #ff0055;
+$color-gold: #f5a002;
 $font-main: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 
@@ -21,102 +22,131 @@ $font-main: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 // 3. Estilos Base
-
-
 .header {
     background-color: $color-fondo;
     display: flex;
-    margin-bottom: 100px;
-    justify-content: space-between;
+    justify-content: flex-start; 
     align-items: center;
-    padding: 10px 5%;
+    padding: 15px 5%;
     position: sticky;
     top: 0;
     z-index: 1000;
     color: $text-white;
-}
+    min-height: 70px;
 
-
-.navegador {
-    position: relative;
     
+}.navegador {
+    position: relative;
+
+    .menu-toggle {
+
+        display: none; 
+        font-size: 1.8rem;
+        cursor: pointer;
+        position: relative; 
+        z-index: 1010;
+        color: $text-white;
+        padding: 10px;      
+
+    }
 
     .nav-list {
         display: flex;
+        flex-direction: row;
         list-style: none;
         gap: 35px;
+        margin: 0;
+        padding: 0;
 
-        
-        
+
+
         .ul__li {
             display: flex;
             align-items: center;
-            gap: 8px; 
-
-
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
             a {
                 text-decoration: none;
                 color: $text-white;
+                font-weight: 500;
+                white-space: nowrap;
             }
+            &.active {
+                background-color: $color-fuerte;
+                a, i { color: white; }
+            }
+
+            &:hover:not(.active) {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
         }
-        
-        }&.active {
-            display: flex !important; 
-            animation: slideDown 0.3s ease forwards;
+
     }
 
-    .menu-toggle {
-        display: none; 
-        font-size: 1.5rem;
-        color: $text-white;
-        cursor: pointer;
-    }
-}
+    // --- LÓGICA RESPONSIVE ---
 
-// 4. Media Queries Anidadas
-/* Breakpoint MD (481px - 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
-    .navegador .nav-list {
-        gap: 15px;
-    }
-}
+    // Desktop
 
-/* Breakpoint SM (0 - 480px) */
-@media (max-width: 480px) {
-    .navegador {
+    @media (min-width: 769px) {
+
+        .nav-list {
+            display: flex;
+            flex-direction: row ;
+            position: static ;
+            width: auto t;
+            height: auto t;
+            padding: 0 ;
+            left: 0 ;
+            box-shadow: none ;
+
+        }
         .menu-toggle {
-            display: block;
+            display: none ;
+        }
+
+    }
+    // 2. Mobile y Tablets (Menos de 768px)
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block; 
         }
 
         .nav-list {
-            display: active; 
+            
+            display: none; 
             flex-direction: column;
-            position: absolute;
-            top: 40px; 
-            right: 0;
-            width: 25vw; 
-            min-width: 120px; 
+            position: fixed;
+            top: 0;
+            left: -100%; 
+            width: 250px; 
+            height: 100vh;
             background-color: $dark;
-            padding: 20px 10px;
-            text-align: center;
-           
+            padding: 100px 20px 20px 20px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+            z-index: 1000; 
+
+            
+            &.active {
+                display: flex; 
+                left: 0; 
+                transition: left 0.4s ease-in-out;
+            }
 
             .ul__li {
-                margin: 15px 0;
-                display: block;
-                
-                
-           
-
-                
+                width: 100%;
+                margin-bottom: 15px;
+                a { color: white; font-size: 1.1rem; }
             }
         }
     }
+
+    @media (max-width: 480px) {
+        .nav-list { width: 70%; }
+    }
 }
-    
-
-
-
 
 // 2. Mixin para efectos de interacción (Hover)
 @mixin hover-grow {
@@ -145,57 +175,61 @@ $font-main: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 .contenedor {
     @include hover-grow;
     display: flex;
+    margin: 50px auto;
+    font-family: Verdana, sans-serif;
+    font-size: 2rem;
     justify-content: center;
     align-items: center;
+    color: $dark;
     text-align: center;
-    font-size: 1rem;
-    font-family: "Trebuchet MS", sans-serif;
-    color:$color-borde-li;
-    width: 300px;
-    height: 85px;
-    background-color: $color-boton;
-    border: 3px solid $text-white; 
-    border-radius: 8px;
-    line-height: normal;
-    font-family: 'Playfair Display', serif; 
-    font-size:35px;
-    text-shadow: 2px 2px 4px $text-white, 
-                 -1px -1px 0px $text-white;
+    padding: 20px;
+    width: 410px;
+    height: 60px; 
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 4px $color-borde-botones, 
+                 -1px -1px 0px $color-gold; 
+    background: linear-gradient(135deg, $color-borde-botones, transparent);
 
-
+    
     a {
-        text-decoration: none;
-        color: inherit;
+        text-decoration: none; 
+        color: inherit;         
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, transparent, $primary-blue);
     }
 }
 
 // 5. Botón "Juguetes"
 .cuadrado {
-    @include hover-grow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 2em;
-    color: $color-borde-li;
-    background-color: $primary-blue; 
-    box-sizing: border-box;
-    border-radius: 12px;
-    border: 2px solid $text-white;
-    padding: 10px;
-    width: 200px;
-    height: 75px;
-    font-family: 'Playfair Display', serif; 
-    font-size: 2 rem;
-    text-shadow: 2px 2px 4px $text-white, 
-                 -1px -1px 0px $text-white;
-
-   
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
+        @include hover-grow;
+        display: flex;
+        margin: 50px auto;
+        font-family: Verdana, sans-serif;
+        font-size: 2rem;
+        justify-content: center;
+        align-items: center;
+        color: $dark;
+        text-align: center;
+        padding: 20px;
+        width: 410px;
+        height: 60px; 
+        transition: all 0.3s ease;
+        text-shadow: 2px 2px 4px $color-borde-botones, 
+                     -1px -1px 0px $color-gold; 
+        background: linear-gradient(135deg, $color-borde-botones, transparent);
+        a {
+            text-decoration: none; 
+            color: inherit;        
+        }
+    
+        &:hover {
+            background: linear-gradient(135deg, transparent, $primary-blue);
+        }
+      
+    
+    
 
     // Responsive anidado para .cuadrado
     @media (max-width: 768px) {
@@ -213,114 +247,166 @@ $font-main: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     margin-top: 100px;
 }
-.animate__animated.animate__bounceInUp {
-    display: flex;
-    justify-content: center; 
-    align-items: center;     
-        
-    width: 270px;
-    height: 75px;
-    padding: 15px; 
-    font-family: 'Playfair Display', serif; 
-    font-size: 2rem; 
-    text-align: center;
-    color: $primary-blue; 
-    background-color: $color-boton;
-    border: 2px solid $text-white;
-    border-radius: 12px;
-    box-sizing: border-box;
-    transition: transform 0.3s ease, color 0.7s ease;
-
-    &:hover {
-        transform: scale(1.2);
-        cursor: pointer;
-        text-decoration: none;
-        
-       color: gold; 
-    }
-}
-
-
-body {                                           // Index pagina principal
-    background-image:  url('../imagenes/principal.png');
+// Index pagina principal
+body {
+    background-image: url('../imagenes/fondo-index.png');
     background-repeat: no-repeat;  
     background-position: center;   
     background-size: cover;        
     background-attachment: fixed; 
-    min-height: 100vh;            
+    
+    // ESTO ES LA CLAVE:
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    margin: 0;
+    overflow-x: hidden;
 }
 
-.pie {                                             /* footer responsive*/
-    background-color: $primary-blue;
-    font-family: Verdana, sans-serif;
-    font-size: 1.4rem;
-    margin-top: 100px;
-    color: $primary-blue;    
-    width: 100%;
-    height: 150px;
-    .copyright{
-             color: $text-white;
-             font-family: 'Roboto';
-             font-size: 3rem;
 
-    }
-       .icono-red-social {
-        width: 60px;
-        height: auto;
-        transition: transform 0.3s;
-    
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
-    
-      // Media Query para Celulares anidada
-      @media (max-width: 480px) {
-        font-size: 1rem;
-        height: auto; 
-        padding: 20px 0;
-      }
-    }
-    
-    
-    .header {
-      @media (max-width: 480px) {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      @media (min-width: 769px) {
-        padding: 10px 10%;
-      }
-    }
-    
-    nav {
-      @media (max-width: 480px) { width: 100%; justify-content: center; }
-      @media (min-width: 481px) and (max-width: 768px) { width: 40%; }
-      @media (min-width: 769px) { width: auto; min-width: 200px; }
-    }
-    
-    main {
-      @media (min-width: 769px) {
-        display: flex;
+.botones {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    gap: 350px;
+    margin: 50px 0;
+
+    @media (max-width: 768px) {
         flex-direction: column;
         align-items: center;
-        gap: 20px;
-        
-      }
+        gap: 30px;
+    }
+}
+                             //*       Estilo para el h1 dentro del contenedor
+
+// h1 index Responsive
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto; 
+    width: fit-content; 
+    min-width: 300px; 
+    height: auto;
+    padding: 0 20px;
+
+    h1 {
+        color: $color-borde-botones;
+        font-size: 5rem; 
+        font-family: 'Playfair Display', serif;
+        transition: transform 0.3s ease;
+        text-shadow: 2px 2px 4px $color-gold, 
+                 -1px -1px 0px $text-white;
+
+        white-space: nowrap; 
+        margin: 0;
     }
 
-                                              //  Body Mi cuenta
-    .body-mi-cuenta {
-    background-image: url('../imagenes/mi-cuenta.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 100vh;
-    font-family: $dark;
-}
+    // --- BREAKPOINTS RESPETANDO TUS MEDIDAS ---
+
+    // Mobile (0-480px) -
+    @media (max-width: 480px) {
+        width: 90%;          
+        height: 50px;
+        h1 { font-size: 2.2rem; } 
+    }
+
+    // Tablet (481-768px)
+    @media (min-width: 481px) and (max-width: 768px) {
+        width: auto;
+        h1 { font-size: 3.5rem; }
+    }
+
+    // Laptop/Desktop (769-1279px)
+    @media (min-width: 769px) and (max-width: 1279px) {
+        width: auto;
+        h1 { font-size: 4rem; }
+    }
+
+    // Large Desktop (1280px+) 
+        width: 350px; 
+        height: 70px;
+        h1 { font-size: 5rem; }
+    }
+
+    .pie {
+        background-color: $primary-blue;
+        color: $text-white;
+        padding: 25px;
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between;
+        align-items: center; 
+        width: 100%;
+        gap: 20px;
+    
+        .redes-sociales {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; // Empuja los iconos a la derecha
+            gap: 20px;
+        }
+    
+        // --- RESPONSIVE LOGIC ---
+    
+        // 1. EXTRA LARGE (1281px+)
+        @media (min-width: 1281px) {
+            padding: 25px 10%;
+            .copyright { font-size: 1.6rem; }
+            .icono-red-social { width: 50px; }
+        }
+    
+        // 2. LARGE (769px a 1280px)
+        @media (min-width: 769px) and (max-width: 1280px) {
+            padding: 25px 5%;
+            .copyright { font-size: 1.3rem; }
+            .icono-red-social { width: 40px; }
+        }
+    
+        // 3. MEDIUM (481px a 768px) 
+        @media (min-width: 481px) and (max-width: 768px) {
+            flex-direction: column; // En tablet pasa a columna
+            text-align: center;
+            .redes-sociales { justify-content: center; }
+            .copyright { font-size: 1.2rem; }
+        }
+    
+        // 4. SMALL (0px a 480px)
+        @media (max-width: 480px) {
+            flex-direction: column; // En móvil pasa a columna
+            gap: 15px;
+            padding: 20px 10px;
+            
+            .redes-sociales { justify-content: center; }
+    
+            .copyright { 
+                font-size: 1rem;
+                max-width: 100%; 
+                margin-bottom: 5px;
+            }
+    
+            .icono-red-social { 
+                width: 35px; 
+            }
+        }
+    
+        // Estilos generales internos
+        .copyright {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s ease;
+            white-space: nowrap; 
+        }
+    
+        .icono-red-social {
+            height: auto;
+            transition: transform 0.3s ease;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
 
                                                 // 3. Header y Nav 
 .header {
@@ -345,56 +431,45 @@ body {                                           // Index pagina principal
     }
 }
 
-// h1 index Responsive
-.animate__animated {
+
+
+                                                                       //  Body Mi cuenta
+    .body-mi-cuenta {
+        background-image: url('../imagenes/fondo-pantallas.png');
+        background-repeat: no-repeat;  
+        background-position: center;   
+        background-size: cover;        
+        background-attachment: fixed; 
+        min-height: 100vh;            
+        max-width: 100%;      
+        overflow-x: hidden;   
+        position: relative;   
+
+    }                                      
+
+//  Seccion " Crear cuenta"
+.crea {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $primary-blue;
-    border-radius: 12px;
-    border: 2px solid $text-white;
-   
-    h1{
-        color: $text-white;
-        font-size: 3rem;
-        font-family: 'Playfair';
-        text-shadow: 4px 4px 4px $color-borde-botones;
-    }
-    
-    // Centrado horizontal automático
+    text-shadow: 2px 2px 4px $color-gold, 
+                 -1px -1px 0px $text-white;
     margin: 20px auto; 
-    width: 300px;
-    height: 65px;
+    width: 180px;
+    height: 80px;
 
-    //  BREAKPOINTS 
+   
 
-    // Mobile (0-480px)
+    // Adaptación para móviles
     @media (max-width: 480px) {
-        width: 90%;          
-        font-size: 1.2rem;  
-        height: 50px;
-    }
-
-    // Tablet (481-768px)
-    @media (min-width: 481px) and (max-width: 768px) {
-        width: 280px;
-        font-size: 1.5rem;
-    }
-
-    // Laptop/Desktop (769-1279px)
-    @media (min-width: 769px) and (max-width: 1279px) {
-        width: 300px; 
-    }
-
-    // Large Desktop (1280px+)
-    @media (min-width: 1280px) {
-        width: 350px;
-        height: 70px;
+        width: 90%;
+        height: auto;
+        padding: 10px;
+        h1.creacuenta {
+            font-size: 1.5rem;
+        }
     }
 }
-
-
-//  Seccion " Crear cuenta"
 .account {
     display: flex;
     align-items: center;
@@ -402,9 +477,7 @@ body {                                           // Index pagina principal
     margin-left: 650px;
     font-size: 25px;
     color: $dark;
-    background-color: $primary-blue;
-    border-radius: 12px;
-    border: 2px solid $dark;
+    background-color: $text-white;
     width: 220px;
     height: 45px;
 }
@@ -485,7 +558,7 @@ body {                                           // Index pagina principal
     .formulario { width: 90%; }
 }
 
-//  Seccion "Mi Cuenta"
+                                                       //  Seccion "Mi Cuenta"
 .account {
     display: flex;
     align-items: center;
@@ -554,72 +627,47 @@ body {                                           // Index pagina principal
    
    .educando {
    
-    background-image:  url('../imagenes/educando.png');
+    background-image:  url('../imagenes/fondo-pantallas.png');
     background-repeat: no-repeat;  
     background-position: center;   
     background-size: cover;        
     background-attachment: fixed; 
-    min-height: 100vh
+    min-height: 100vh;            
+
+
+max-width: 100%;      
+overflow-x: hidden;  
+position: relative;   
 
 } // Botón/Título superior
 .child {
+    @include hover-grow;
     display: flex;
-    align-items: center;
+    margin: 50px auto;
+    font-family: Verdana, sans-serif;
+    font-size: 2rem;
     justify-content: center;
-    margin: 50px auto 75px;
-    font-family: 'Playfaire display';
-    font-size: 25px;
-    color: $color-borde-li;
-    background-color: $primary-blue; 
-    box-sizing: border-box;
-    border-radius: 12px; 
-    border: 2px solid $color-borde-li;
+    align-items: center;
+    color: $dark;
+    text-align: center;
     padding: 20px;
-    width: 350px;
-    height: 75px;
-    transition: transform 0.3s;
-    text-shadow: 2px 2px 4px $text-white, 
-                 -1px -1px 0px $text-white;
-
+    width: 410px;
+    height: 60px; 
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 4px $color-borde-botones, 
+                 -1px -1px 0px $color-gold; 
+    background: linear-gradient(135deg, $color-borde-botones, transparent);
+    a {
+        text-decoration: none; 
+        color: inherit;        
+    }
 
     &:hover {
-        transform: scale(1.2);
-        cursor: pointer;
-        background-color: $primary-blue; 
+        background: linear-gradient(135deg, transparent, $primary-blue);
     }
 }
 
-// Subtítulo con Animate.css
-.learn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 50px auto 75px;
-    font-family: 'Playfaire display';
-    font-size: 25px;
-    color: $color-borde-li;
-    background-color: $primary-blue; 
-    box-sizing: border-box;
-    border-radius: 12px; 
-    border: 2px solid $color-borde-li;
-    padding: 20px;
-    width: 300px;
-    height: 75px;
-    transition: transform 0.3s;
-    text-shadow: 2px 2px 4px $text-white, 
-                 -1px -1px 0px $text-white;
 
-    &:hover {
-        transform: scale(1.2);
-        cursor: pointer;
-        background-color: $color-fondo; 
-    }
-
-    // Breakpoints para el ancho del título "Learn"
-    @media (max-width: 480px) { width: 90%; font-size: 22px; }
-    @media (min-width: 481px) and (max-width: 768px) { width: 70%; font-size: 28px; }
-    @media (min-width: 769px) { width: 37vw; font-size: 35px; }
-}
 
 // Sección principal Responsive
 .section {
@@ -691,7 +739,7 @@ body {                                           // Index pagina principal
     }
 }
 
-// Footer
+                                                                        // Footer
 .pie {
     background-color: $primary-blue;
     color: $text-white;
@@ -768,32 +816,34 @@ body {                                           // Index pagina principal
 
 
 .body-juguetes {
-    background-image: url('../imagenes/juguetes.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 100vh;
-    font-family: $font-main;
+    background-image: url('../imagenes/fondo-pantallas.png');
+    background-repeat: no-repeat;  
+    background-position: center;   
+    background-size: cover;        
+    background-attachment: fixed; 
+    min-height: 100vh;            
+    max-width: 100%;       
+    overflow-x: hidden;  
+    position: relative;   
 }
 
 // Título de Categorías
-h3 {
-    display: block;
-    margin: 50px auto 75px auto;
+.toys {
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
+    margin: 20px auto;
     font-family: $font-main;
     font-size: 25px;
-    color: $color-borde-li; 
+    color: $color-borde-botones; 
     text-align: center;
     background-color: $primary-blue;
     box-sizing: border-box;
-    border-radius: 12px;
-    border: 2px solid $color-borde-li;
     padding: 20px;
-    width: 250px;
-    height: 75px;
+    width: 220px;
+    height: 50px;
     transition: transform 0.3s ease;
-    text-shadow: 2px 2px 4px $color-borde-li, 
+    text-shadow: 2px 2px 4px $color-gold, 
                  -1px -1px 0px $text-white;
 
 
@@ -805,27 +855,82 @@ h3 {
 }
 
 // Contenedor de Lista y sus Breakpoints
-
 .categories {
     display: flex;
     list-style-type: none;
     background-color: $dark;
     padding: 0;
-    margin: 0;
+    margin: 200px auto 0 auto; 
     width: 100%;
-    
+    flex-wrap: wrap;
+    justify-content: center; 
+
     li {
+        width: 200px;
+        height: 200px;
         background-color: $color-boton;
-        border: 4px solid $color-borde-li;
+        border: 3px solid $color-borde-li;
         border-radius: 5px;
         transition: all 0.3s ease;
-        
+        overflow: hidden; 
+        display: flex;
+        flex-direction: column;
+
+        .card {
+            height: 100%;
+            border: none;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+
+            img {
+                width: 100%;
+                height: 90px; 
+                object-fit: cover;
+            }
+
+            .card-body {
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between; 
+                align-items: center;
+                flex-grow: 1; 
+                
+                .card-title {
+                    display: block; 
+                    font-size: 0.9rem;
+                    color: $text-white;
+                    margin: 0;
+                    text-align: center;
+                    font-weight: 600;
+                }
+
+                .card-text {
+                    display: none; 
+                }
+            }
+        }
+
         a {
             text-decoration: none;
             color: $text-white;
-            display: block;
-            padding: 15px 25px;
+            background-color: $color-fuerte; // Color de botón
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            height: 35px; // Altura fija y menor para el botón
             font-family: $font-main;
+            font-size: 0.8rem;
+            padding: 5px;
+            border-radius: 7px; 
+            transition: background 0.3s ease;
+
+            &:hover {
+                background-color: rgba($color-fuerte, 0.9); 
+            }
         }
 
         &:hover {
@@ -835,7 +940,7 @@ h3 {
         }
     }
 
-    
+    // --- LÓGICA RESPONSIVE ---
 
     // SMALL (0px - 480px)
     @media (max-width: 480px) {
@@ -843,9 +948,9 @@ h3 {
         align-items: center;
         gap: 15px;
         padding: 20px 0;
-
+        margin-top: 100px; 
         li {
-            width: 85%;
+            width: 200px; 
             text-align: center;
         }
     }
@@ -858,67 +963,73 @@ h3 {
         padding: 30px 0;
 
         li {
-            width: 60%;
+            width: 200px;
         }
     }
-
     // LARGE (769px - 1280px)
     @media (min-width: 769px) and (max-width: 1280px) {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        height: 80px;
-        gap: 10px;
+        height: auto; 
+        gap: 15px;
+        padding: 40px 0;
 
         li {
-            margin: 0 5px;
+            margin: 5px;
         }
     }
 
     // EXTRA LARGE (1281px en adelante)
     @media (min-width: 1281px) {
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
-        height: 100px;
-        padding: 0 10%;
+        height: auto; 
+        gap: 30px;
+        padding: 50px 10%;
 
         li {
-            a { font-size: 1.2rem; }
+            a { font-size: 0.85rem; }
         }
     }
 }
-
                                                         //Body Grilla
 .body-grilla {
-    background-image: url('../imagenes/grilla-bebe.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 100vh;
-    font-family: $font-main;
+    background-image: url('../imagenes/fondo-pantallas.png');
+    background-repeat: no-repeat;  
+    background-position: center;   
+    background-size: cover;        
+    background-attachment: fixed; 
+    min-height: 100vh;            
+    max-width: 100%;      
+    overflow-x: hidden;    
+    position: relative;   
 }
 
 // 2. Título "Elegir Producto" (h2)
 .grilla {
-    display: grid;
-    place-items: center;
-    text-align: center;
-    font-size: 2rem;
-    font-family: $font-main;
-    color: $color-borde-li;
-    width: 250px;
-    height: 45px; 
-    background-color: $primary-blue;
-    margin: 20px auto 30px;
-    border: 3px solid $text-white;
-    border-radius: 8px;
-    text-shadow: 2px 2px 4px $text-white, 
-                 -1px -1px 0px $text-white;
+display: flex;
+margin: 50px auto;
+font-family: Verdana, sans-serif;
+font-size: 3rem;
+justify-content: center;
+align-items: center;
+color: $color-borde-li;
+text-align: center;
+background: linear-gradient(135deg, $primary-blue, transparent);
+&:hover {
+    background: linear-gradient(135deg, transparent, $primary-blue)};
+
+padding: 20px;
+width: 410px;
+height: 60px; 
+transition: all 0.3s ease;
+text-decoration: none; 
+text-shadow: 2px 2px 4px $color-fuerte, 
+             -1px -1px 0px $color-gold;             
 
 }
-
 // 3. Contenedor de Cards 
 .card-group {
     display: flex;
@@ -1001,14 +1112,14 @@ h3 {
     text-align: center;
     background-color: $primary-blue;
     border-radius: 12px;
-    border: 2px solid $text-white;
+    border: 2px solid $color-fuerte;
     padding: 20px;
     width: 100px;
     height: auto; 
     transition: all 0.3s ease;
     text-decoration: none; 
-    text-shadow: 2px 2px 4px $text-white, 
-                 -1px -1px 0px $text-white;
+    text-shadow: 2px 2px 4px $color-fuerte, 
+                 -1px -1px 0px $color-gold;
     
                  a {
                     display: flex;         
