@@ -10,11 +10,6 @@ $color-gold: #f5a002;
 $font-main: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 
-
-
-
-
-
 // 2. Mixins 
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-10px); }
@@ -35,7 +30,9 @@ $font-main: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     min-height: 70px;
 
     
-}.navegador {
+}
+                                                    /*nav*/
+.navegador {
     position: relative;
 
     .menu-toggle {
@@ -96,8 +93,8 @@ $font-main: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             display: flex;
             flex-direction: row ;
             position: static ;
-            width: auto t;
-            height: auto t;
+            width: auto ;
+            height: auto ;
             padding: 0 ;
             left: 0 ;
             box-shadow: none ;
